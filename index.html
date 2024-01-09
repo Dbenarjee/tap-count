@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .screen {
+            height: 500px;
+            width: 360px;
+            text-align: center;
+            border: 2px solid black;
+        }
+
+        .box {
+            height: 60px;
+            width: 80px;
+            border: 2px solid black;
+            margin-top: 25%;
+            margin-left: 130px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .enter {
+            height: 70px;
+            width: 100%;
+            border: 2px solid black;
+            margin-top: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .increment {
+            height: 50px;
+            width: 60px;
+            margin-top: 27%;
+            margin-left: 40px;
+            float: left;
+            border: 2px solid black;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .decrement {
+            height: 50px;
+            width: 60px;
+            margin-top: 27%;
+            margin-right: 50px;
+            float: right;
+            border: 2px solid black;
+            font-size: 2rem;
+        }
+
+        .ok {
+            height: 50px;
+            width: 60px;
+            border: 2px solid black;
+            margin-top: 1rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box1 {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="screen">
+        <div class="increment" onclick="incrementCounter()">+</div>
+        <div class="decrement" onclick="decrementCounter()">-</div>
+        <div class="box"></div>
+        <div class="enter" id="inputBox" contenteditable="true">0</div>
+        <center>
+            <div class="ok" onclick="performAddition()">OK</div>
+        </center>
+        <div class="box1" id="outputBox">Result: 0</div>
+
+    </div>
+    <script>
+        let tapCount = 0;
+
+        function incrementCounter() {
+            tapCount++;
+            document.querySelector('.box').innerText = `${tapCount}`;
+        }
+        function decrementCounter() {
+            if(tapCount > 0)
+            {
+                tapCount--;
+            document.querySelector('.box').innerText = `${tapCount}`;
+            }
+        }
+        //for adding
+        var result = 0;
+        function performAddition() {
+            var inputBoxValue = parseInt(document.getElementById("inputBox").innerText);
+            result += inputBoxValue;
+            document.getElementById("outputBox").innerText = "Result: " + result;
+            document.getElementById("inputBox").innerText = "0";
+        }
+    </script>
+</body>
+
+</html>
